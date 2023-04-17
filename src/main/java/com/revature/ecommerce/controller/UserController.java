@@ -1,8 +1,7 @@
 package com.revature.ecommerce.controller;
 
 import com.revature.ecommerce.model.EcommerceUser;
-import com.revature.ecommerce.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.revature.ecommerce.service.UserServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,9 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController @RequestMapping("/api/user")
 public class UserController {
 
-    private final UserService userService;
+    private final UserServiceImpl userService;
 
-    public UserController(UserService userService) {
+    public UserController(UserServiceImpl userService) {
         this.userService = userService;
     }
 
