@@ -16,6 +16,11 @@ public class UserServiceImpl implements UserService {
         this.userRepository = userRepository;
     }
 
+    /**
+     * method to sign up a user
+     * @param user username, email, password
+     * @return user model
+     */
     @Override
     public EcommerceUser signUp(EcommerceUser user) {
         if(userRepository.existsByUsername(user.getUsername())){
@@ -28,6 +33,12 @@ public class UserServiceImpl implements UserService {
         return userRepository.save(user);
     }
 
+    /**
+     * method to sign in a user
+     * @param username users username
+     * @param password users password
+     * @return user model
+     */
     @Override
     public EcommerceUser signIn(String username, String password) {
         EcommerceUser user = userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("User not found"));

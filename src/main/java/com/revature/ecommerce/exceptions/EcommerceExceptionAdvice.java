@@ -22,6 +22,12 @@ public class EcommerceExceptionAdvice {
     public ResponseEntity<String> handleUserAlreadyExistsException(BadCredentialsException e){
         return new ResponseEntity<>(e.getMessage(), HttpStatus.UNAUTHORIZED);
     }
+
+    @ExceptionHandler(ProductNotFoundException.class)
+    public ResponseEntity<String> handleUserAlreadyExistsException(
+        ProductNotFoundException e){
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+    }
 }
 
 
