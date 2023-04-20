@@ -8,4 +8,5 @@ public interface CartService {
     List<CartItem> getCardItems(Long userId);
     CartItem addToCart(Long userId, Long productId, Integer quantity);
     void removeFromCart(Long cartItemId);
+    void removeOneFromCart(Long cartItemId);
 }

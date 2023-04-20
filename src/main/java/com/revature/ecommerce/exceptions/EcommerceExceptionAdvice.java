@@ -14,18 +14,24 @@ public class EcommerceExceptionAdvice {
     }
 
     @ExceptionHandler(UsernameNotFoundException.class)
-    public ResponseEntity<String> handleUserAlreadyExistsException(UsernameNotFoundException e){
+    public ResponseEntity<String> handleUsernameNotFoundException(UsernameNotFoundException e){
         return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(BadCredentialsException.class)
-    public ResponseEntity<String> handleUserAlreadyExistsException(BadCredentialsException e){
+    public ResponseEntity<String> handleBadCredentialsException(BadCredentialsException e){
         return new ResponseEntity<>(e.getMessage(), HttpStatus.UNAUTHORIZED);
     }
 
     @ExceptionHandler(ProductNotFoundException.class)
-    public ResponseEntity<String> handleUserAlreadyExistsException(
+    public ResponseEntity<String> handleProductNotFoundException(
         ProductNotFoundException e){
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<String> handleResourceNotFoundException(
+            ResourceNotFoundException e){
         return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
     }
 }

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController @RequestMapping("/api/cart")
+@RestController @RequestMapping("/api/cart") @CrossOrigin("*")
 public class CartController {
 
     private final CartServiceImpl cartService;
@@ -32,6 +32,12 @@ public class CartController {
     @DeleteMapping("/{cartItemId}")
     public ResponseEntity<Void> removeFromCart(@PathVariable Long cartItemId){
         cartService.removeFromCart(cartItemId);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @DeleteMapping("/{cartItemId}/removeOne")
+    public ResponseEntity<Void> removeOneFromCart(@PathVariable Long cartItemId) {
+        cartService.removeOneFromCart(cartItemId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
