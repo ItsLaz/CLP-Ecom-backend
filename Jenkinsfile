@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = 'itslaz/ecommerce-backend'
+        DOCKER_IMAGE = 'itslaz/ecom-b'
     }
 
     stages {
