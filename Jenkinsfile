@@ -28,7 +28,7 @@ pipeline {
                 sh 'sudo docker rm -f $(sudo docker ps -af name=ecommerce-backend -q)'
 
                 //run latest version of image in container
-                sh 'sudo docker run -p 4798:4798 --name ecommerce-backend ${DOCKER_IMAGE}:latest'
+                sh 'sudo docker run -d -p 4798:4798 --name ecommerce-backend ${DOCKER_IMAGE}:latest'
 
             }
         }
